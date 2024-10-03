@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    
+    <style>
+        /* General body and layout styling */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Flexbox for layout */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Main container styling */
+        .container {
+            flex: 1;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* User form styling */
+        .user-form {
+            margin-bottom: 30px;
+        }
+
+        .user-form input[type="text"],
+        .user-form input[type="email"],
+        .user-form input[type="password"],
+        .user-form select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .user-form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .user-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* User list styling */
+        .user-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .user-list li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-list li .info {
+            flex: 1;
+        }
+
+        .user-list li button {
+            background-color: #FF5C5C;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .user-list li button:hover {
+            background-color: #e60000;
+        }
+
+        .user-list li .edit-button {
+            background-color: #FFA500;
+            margin-right: 10px;
+        }
+
+        .user-list li .edit-button:hover {
+            background-color: #cc8400;
+        }
+
+        /* Footer fixed to bottom */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+        .dashboard-button {
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            margin-top: 20px; /* Margin above the button */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Manage Users</h1>
+    </header>
+
+    <div class="container">
+        <section class="user-form">
+            <h2>Add New User</h2>
+            <form id="addUserForm">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="userRole" required>
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="visitor">Visitor</option>
+                    <option value="curator">Curator</option>
+                    <option value="artist">Artist</option>
+                </select>
+                <button type="submit">Add User</button>
+            </form>
+        </section>
+
+        <section class="user-list-section">
+            <h2>User List</h2>
+            <ul class="user-list" id="userList">
+                <!-- Example user item -->
+                <!-- <li>
+                    <div class="info">
+                        <h3>Username</h3>
+                        <p>Email: user@example.com</p>
+                        <p>Role: Artist</p>
+                    </div>
+                    <div>
+                        <button class="edit-button" onclick="editUser(this)">Edit</button>
+                        <button onclick="deleteUser(this)">Delete</button>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </div>
+    <center>
+        <a href="../admin/dashboard.html">
+            <button class="dashboard-button">Go to Dashboard</button>
+        </a>
+    </center>
+    <footer>
+        <p>&copy; 2024 Virtual Art Gallery</p>
+    </footer>
+
+    <script>
+        // User management logic
+
+        // Get form elements
+        const userForm = document.getElementById('addUserForm');
+        const userList = document.getElementById('userList');
+
+        // Listen for form submission
+        userForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form from submitting traditionally
+
+            // Get form values
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('userRole').value;
+
+            // Create a new user item
+            const userItem = document.createElement('li');
+            userItem.innerHTML = `
+                <div class="info">
+                    <h3>${username}</h3>
+                    <p>Email: ${email}</p>
+                    <p>Role: ${role}</p>
+                </div>
+                <div>
+                    <button class="edit-button" onclick="editUser(this)">Edit</button>
+                    <button onclick="deleteUser(this)">Delete</button>
+                </div>
+            `;
+
+            // Add user item to the list
+            userList.appendChild(userItem);
+
+            // Reset the form
+            userForm.reset();
+        });
+
+        // Function to delete a user
+        function deleteUser(button) {
+            const userItem = button.parentNode.parentNode;
+            userList.removeChild(userItem);
+        }
+
+        // Function to edit a user
+        function editUser(button) {
+            const userItem = button.parentNode.parentNode;
+            const username = userItem.querySelector('h3').innerText;
+            const email = userItem.querySelector('p:nth-child(2)').innerText.replace('Email: ', '');
+            const role = userItem.querySelector('p:nth-child(3)').innerText.replace('Role: ', '');
+
+            // Fill the form with existing details
+            document.getElementById('username').value = username;
+            document.getElementById('email').value = email;
+            document.getElementById('userRole').value = role;
+
+            // Remove the current user item (it will be re-added when the form is submitted)
+            userList.removeChild(userItem);
+        }
+    </script>
+</body>
+</html>

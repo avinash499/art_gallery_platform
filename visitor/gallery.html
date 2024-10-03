@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gallery</title>
+    
+    <style>
+        body {
+            display: flex; /* Enable flexbox on the body */
+            flex-direction: column; /* Arrange children vertically */
+            min-height: 100vh; /* Set minimum height to viewport height */
+            font-family: Arial, sans-serif; /* Set a default font for the body */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .gallery {
+            text-align: center; /* Center align text in the gallery section */
+            padding: 20px; /* Add some padding around the gallery */
+            flex-grow: 1; /* Allow the gallery section to grow and take up available space */
+        }
+
+        .artwork {
+            display: inline-block; /* Make artwork divs inline-block to center them */
+            margin: 10px; /* Add margin for spacing between artworks */
+        }
+
+        .artwork img {
+            max-width: 150px; /* Set maximum width for images */
+            height: auto; /* Maintain aspect ratio */
+            border: 1px solid #ccc; /* Optional: add a border around images */
+            border-radius: 5px; /* Optional: add rounded corners */
+        }
+
+        footer {
+            text-align: center; /* Center text in the footer */
+            padding: 10px; /* Add padding to the footer */
+            background-color: #241010; /* Optional: background color for the footer */
+        }
+
+        nav ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        nav ul li {
+            display: inline; /* Display nav items inline */
+            margin: 0 15px; /* Add space between nav items */
+        }
+
+        nav a {
+            text-decoration: none; /* Remove underline from links */
+            color: #333; /* Text color for links */
+            transition: color 0.3s; /* Smooth transition for color change */
+        }
+
+        nav a:hover {
+            color: #007BFF; /* Change color on hover */
+        }
+
+        /* Button styles */
+        .dashboard-button {
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            margin-top: 20px; /* Margin above the button */
+        }
+
+        .dashboard-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <section class="gallery">
+        <h2 style="color: black; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);">Art Collections</h2>
+        
+        <div class="artwork">
+            <img src="../images/Mona_Lisa.jpg" alt="Artwork 1">
+            <p>Description of Artwork 1.</p>
+        </div>
+        <div class="artwork">
+            <img src="../images/Mona_Lisa.jpg" alt="Artwork 2">
+            <p>Description of Artwork 2.</p>
+        </div>
+        <div class="artwork">
+            <img src="../images/Mona_Lisa.jpg" alt="Artwork 3">
+            <p>Description of Artwork 3.</p>
+        </div>
+    </section>
+    
+    <center>
+        <a href="../index.html">
+            <button class="dashboard-button">Go to Home</button>
+        </a>
+    </center>
+
+    <footer>
+        <p>&copy; 2024 Virtual Art Gallery</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* Admin dashboard specific styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #444;
+    border-radius: 4px;
+}
+
+section.dashboard-content {
+    padding: 2rem;
+    text-align: center;
+}
+
+html, body {
+    height: 100%; 
+    margin: 0; 
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+}
+
+
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+    height: 100%; /* Set height to 100% of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+/* Use flexbox for body layout */
+body {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children vertically */
+}
+
+/* Existing dashboard content styling */
+.dashboard-content {
+    flex-grow: 1; /* Allow content to grow and take available space */
+    padding: 20px; /* Add padding to content */
+    background-color: #f9f9f9; /* Light background for contrast */
+}
+
+/* Statistics container */
+.stats-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space items evenly */
+    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+    margin-top: 20px; /* Add some margin above the cards */
+}
+
+/* Individual statistic card styling */
+.stat-card {
+    background-color: #fff; /* White background for cards */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Drop shadow */
+    padding: 20px; /* Padding inside cards */
+    text-align: center; /* Center text inside cards */
+    flex: 1; /* Allow cards to grow equally */
+    margin: 10px; /* Margin between cards */
+    min-width: 150px; /* Minimum width for cards */
+    transition: transform 0.2s; /* Transition for hover effect */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column; /* Stack cards vertically on small screens */
+    }
+}
+
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    width: 100%; /* Full width */
+}
+

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Exhibitions</title>
+
+    <style>
+        /* General body and layout styling */
+        html, body {
+            height: 100%; /* Full height for body and html */
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Flexbox to push footer to bottom */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Main container styling */
+        .container {
+            flex: 1; /* Allow the container to grow and take available space */
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Exhibition form styling */
+        .exhibition-form {
+            margin-bottom: 20px;
+        }
+
+        .exhibition-form input[type="text"],
+        .exhibition-form input[type="date"],
+        .exhibition-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .exhibition-form textarea {
+            resize: vertical;
+        }
+
+        .exhibition-form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .exhibition-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Exhibition list styling */
+        .exhibition-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .exhibition-list li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .exhibition-list li .info {
+            flex: 1;
+        }
+
+        .exhibition-list li button {
+            background-color: #FF5C5C;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .exhibition-list li button:hover {
+            background-color: #e60000;
+        }
+
+        .exhibition-list li .edit-button {
+            background-color: #FFA500;
+            margin-right: 10px;
+        }
+
+        .exhibition-list li .edit-button:hover {
+            background-color: #cc8400;
+        }
+
+        /* Footer fixed to bottom */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto; /* Ensure the footer is at the bottom */
+            width: 100%;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+        .dashboard-button {
+            background-color: #007BFF; /* Button background color */
+            color: white; /* Button text color */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            margin-top: 20px; /* Margin above the button */
+        }
+
+        .dashboard-button:hover {
+            background-color: #c7c6d7; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Manage Exhibitions</h1>
+    </header>
+
+    <div class="container">
+        <section class="exhibition-form">
+            <h2>Add New Exhibition</h2>
+            <form id="addExhibitionForm">
+                <input type="text" id="exhibitionTitle" placeholder="Exhibition Title" required>
+                <input type="date" id="exhibitionDate" required>
+                <textarea id="exhibitionDescription" placeholder="Exhibition Description" rows="5" required></textarea>
+                <button type="submit">Add Exhibition</button>
+            </form>
+        </section>
+
+        <section class="exhibition-list-section">
+            <h2>Exhibitions List</h2>
+            <ul class="exhibition-list" id="exhibitionList">
+                <!-- Example exhibition item -->
+                <!-- <li>
+                    <div class="info">
+                        <h3>Exhibition Title</h3>
+                        <p>Date: 2024-01-01</p>
+                        <p>Description of the exhibition.</p>
+                    </div>
+                    <div>
+                        <button class="edit-button">Edit</button>
+                        <button>Delete</button>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </div>
+    <center>
+        <a href="../curator/dashboard.html">
+            <button class="dashboard-button">Go to Dashboard</button>
+        </a>
+    </center>
+    <footer>
+        <p>&copy; 2024 Virtual Art Gallery</p>
+    </footer>
+
+    <script>
+        // Exhibition management logic
+
+        // Get form elements
+        const exhibitionForm = document.getElementById('addExhibitionForm');
+        const exhibitionList = document.getElementById('exhibitionList');
+
+        // Listen for form submission
+        exhibitionForm.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form from submitting traditionally
+
+            // Get form values
+            const title = document.getElementById('exhibitionTitle').value;
+            const date = document.getElementById('exhibitionDate').value;
+            const description = document.getElementById('exhibitionDescription').value;
+
+            // Create a new exhibition item
+            const exhibitionItem = document.createElement('li');
+            exhibitionItem.innerHTML = `
+                <div class="info">
+                    <h3>${title}</h3>
+                    <p>Date: ${date}</p>
+                    <p>${description}</p>
+                </div>
+                <div>
+                    <button class="edit-button" onclick="editExhibition(this)">Edit</button>
+                    <button onclick="deleteExhibition(this)">Delete</button>
+                </div>
+            `;
+
+            // Add exhibition item to the list
+            exhibitionList.appendChild(exhibitionItem);
+
+            // Reset the form
+            exhibitionForm.reset();
+        });
+
+        // Function to delete an exhibition
+        function deleteExhibition(button) {
+            const exhibitionItem = button.parentNode.parentNode;
+            exhibitionList.removeChild(exhibitionItem);
+        }
+
+        // Function to edit an exhibition
+        function editExhibition(button) {
+            const exhibitionItem = button.parentNode.parentNode;
+            const title = exhibitionItem.querySelector('h3').innerText;
+            const date = exhibitionItem.querySelector('p:nth-child(2)').innerText.replace('Date: ', '');
+            const description = exhibitionItem.querySelector('p:nth-child(3)').innerText;
+
+            // Fill the form with existing details
+            document.getElementById('exhibitionTitle').value = title;
+            document.getElementById('exhibitionDate').value = date;
+            document.getElementById('exhibitionDescription').value = description;
+
+            // Remove the current exhibition item (it will be re-added when the form is submitted)
+            exhibitionList.removeChild(exhibitionItem);
+        }
+    </script>
+
+
+</body>
+</html>

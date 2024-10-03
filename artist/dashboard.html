@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Dashboard</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        .dashboard-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-content h2 {
+            color: #333;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: -30px;
+        }
+
+        .card {
+            perspective: 1000px; /* Enable 3D space */
+            margin: 20px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Allow 3D transformations */
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg); /* Rotate card on hover */
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hide back face when not visible */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            background-color: white;
+        }
+
+        .card-back {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: rotateY(180deg); /* Start back face rotated */
+            display: flex;
+            flex-direction: column; /* Stack name and description */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .card-back h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .card-back p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .card img {
+            
+            width: 100%;
+            height: 200px;
+            object-fit:fill;
+            border-radius: 10px 10px 0 0; /* Round the top corners */
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .card h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .card .price {
+            color: #007BFF;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Animation for card appearance */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .card:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artist Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="upload_artwork.html">Upload Artwork</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-content">
+        <h2>Welcome, Artist!</h2>
+        <p>Manage your artworks and interact with buyers here.</p>
+
+        <div class="card-container">
+            <!-- Artwork Card 1 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/525px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" alt="Starry Night">
+                        <div class="card-content">
+                            <h3>Starry Night</h3>
+                            <p class="price">$1,500</p>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Starry Night</h3>
+                        <p>A beautiful depiction of a swirling night sky, inspired by Van Gogh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork Card 2 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/405px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg" alt="The Mona Lisa">
+                        <div class="card-content">
+                            <h3>The Mona Lisa</h3>
+                            <p class="price">$2,000</p>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>The Mona Lisa</h3>
+                        <p>One of the most famous portraits in the world.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artwork Card 3 -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://images.saatchiart.com/saatchi/1689730/art/8044808/7111855-YJMFMQHC-7.jpg" alt="Abstract Art">
+                        <div class="card-content">
+                            <h3>Abstract Art</h3>
+                            <p class="price">$900</p>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Abstract Art</h3>
+                        <p>A modern, colorful abstraction of shapes and forms.</p>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Virtual Art Gallery</p>
+    </footer>
+</body>
+</html>

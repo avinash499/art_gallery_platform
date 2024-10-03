@@ -1,0 +1,112 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('../images/gallery-bg.jpg');
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 600px;
+}
+
+.intro h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: #e63946;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+body {
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set font family */
+    background-image: url('https://png.pngtree.com/background/20230528/original/pngtree-art-gallery-picture-image_2779074.jpg'); /* Set your background image here */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    color: #2c2c2c; /* Default text color */
+}
+
+
+html, body {
+    height: 100%; /* Ensure the body takes full height */
+    margin: 0; /* Remove default margins */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Align children in a column */
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    color: #fff;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+.artwork img {
+    max-width: 150px;   /* Set maximum width to 150px */
+    height: auto;       /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Optional: add a border around images */
+    border-radius: 5px; /* Optional: add rounded corners */
+    margin: 10px;       /* Optional: space between images */
+}
+
+
+
+
+

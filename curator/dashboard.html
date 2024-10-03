@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curator Dashboard</title>
+    <link rel="stylesheet" href="../css/curator.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        .dashboard-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-content h2 {
+            color: #333;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        .card p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curator Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="manage_exhibitions.html">Manage Exhibitions</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-content">
+        <h2>Welcome, Curator!</h2>
+        <p>Organize exhibitions and manage gallery content from here.</p>
+
+        <div class="card">
+            <h3>Event Overview</h3>
+            <p><strong>Total Events Conducted:</strong> 25</p>
+            <p><strong>Upcoming Events:</strong> 5</p>
+            <p><strong>Ongoing Events:</strong> 3</p>
+            <a href="manage_exhibitions.html" class="button">Manage Exhibitions</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Virtual Art Gallery</p>
+    </footer>
+</body>
+</html>
