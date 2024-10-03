@@ -3,18 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const startTourButton = document.getElementById("start-tour");
 
     const tourImages = [
-        "images/tour1.jpg", // Image of the first gallery
-        "images/tour2.jpg", // Image of the second gallery
-        "images/tour3.jpg", // Image of the third gallery
+        "images/tour1.jpg", 
+        "images/tour2.jpg", 
+        "images/tour3.jpg",
     ];
 
     startTourButton.addEventListener("click", () => {
-        tourContainer.innerHTML = ''; // Clear previous content
+        tourContainer.innerHTML = '';
         tourImages.forEach((image) => {
             const img = document.createElement("img");
             img.src = image;
             img.alt = "Gallery Image";
-            img.className = "tour-image"; // You can style these images in CSS
+            img.className = "tour-image"; 
             tourContainer.appendChild(img);
         });
     });

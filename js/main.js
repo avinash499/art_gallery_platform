@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
         addArtworkToList(artwork);
     });
 
-    // Handle artwork upload
     if (artworkForm) {
         artworkForm.addEventListener('submit', (e) => {
             e.preventDefault();

@@ -70,24 +70,24 @@ nav ul li a {
     border-radius: 5px;
 }
 body {
-    margin: 0; /* Remove default margin */
-    font-family: Arial, sans-serif; /* Set font family */
+    margin: 0; 
+    font-family: Arial, sans-serif; 
     background-image: url('https://png.pngtree.com/background/20230528/original/pngtree-art-gallery-picture-image_2779074.jpg'); /* Set your background image here */
-    background-size: cover; /* Cover the entire page */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    color: #2c2c2c; /* Default text color */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: #2c2c2c; 
 }
 
 
 html, body {
-    height: 100%; /* Ensure the body takes full height */
-    margin: 0; /* Remove default margins */
+    height: 100%; 
+    margin: 0; 
 }
 
 body {
     display: flex;
-    flex-direction: column; /* Align children in a column */
+    flex-direction: column; /
 }
 
 footer {
@@ -95,15 +95,15 @@ footer {
     padding: 1rem;
     background-color: #222;
     color: #fff;
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto; 
 }
 
 .artwork img {
-    max-width: 150px;   /* Set maximum width to 150px */
-    height: auto;       /* Maintain aspect ratio */
-    border: 1px solid #ccc; /* Optional: add a border around images */
-    border-radius: 5px; /* Optional: add rounded corners */
-    margin: 10px;       /* Optional: space between images */
+    max-width: 150px;  
+    height: auto;      
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin: 10px;     
 }
 
 

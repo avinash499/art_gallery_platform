@@ -6,7 +6,7 @@
     <title>Manage Users</title>
     
     <style>
-        /* General body and layout styling */
+        
         html, body {
             height: 100%;
             margin: 0;
@@ -16,7 +16,6 @@
             color: #333;
         }
 
-        /* Flexbox for layout */
         body {
             display: flex;
             flex-direction: column;
@@ -34,7 +33,6 @@
             margin: 0;
         }
 
-        /* Main container styling */
         .container {
             flex: 1;
             width: 80%;
@@ -45,7 +43,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* User form styling */
         .user-form {
             margin-bottom: 30px;
         }
@@ -129,7 +126,6 @@
             width: 100%;
         }
 
-        /* Responsive design */
         @media (max-width: 768px) {
             .container {
                 width: 95%;
@@ -200,13 +196,10 @@
     </footer>
 
     <script>
-        // User management logic
-
-        // Get form elements
+        
         const userForm = document.getElementById('addUserForm');
         const userList = document.getElementById('userList');
 
-        // Listen for form submission
         userForm.addEventListener('submit', function (e) {
             e.preventDefault(); // Prevent form from submitting traditionally
 
@@ -216,7 +209,6 @@
             const password = document.getElementById('password').value;
             const role = document.getElementById('userRole').value;
 
-            // Create a new user item
             const userItem = document.createElement('li');
             userItem.innerHTML = `
                 <div class="info">
@@ -230,32 +222,27 @@
                 </div>
             `;
 
-            // Add user item to the list
             userList.appendChild(userItem);
 
-            // Reset the form
             userForm.reset();
         });
 
-        // Function to delete a user
         function deleteUser(button) {
             const userItem = button.parentNode.parentNode;
             userList.removeChild(userItem);
         }
 
-        // Function to edit a user
         function editUser(button) {
             const userItem = button.parentNode.parentNode;
             const username = userItem.querySelector('h3').innerText;
             const email = userItem.querySelector('p:nth-child(2)').innerText.replace('Email: ', '');
             const role = userItem.querySelector('p:nth-child(3)').innerText.replace('Role: ', '');
 
-            // Fill the form with existing details
+         
             document.getElementById('username').value = username;
             document.getElementById('email').value = email;
             document.getElementById('userRole').value = role;
 
-            // Remove the current user item (it will be re-added when the form is submitted)
             userList.removeChild(userItem);
         }
     </script>

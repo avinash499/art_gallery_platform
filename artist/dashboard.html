@@ -60,7 +60,7 @@
         }
 
         .card {
-            perspective: 1000px; /* Enable 3D space */
+            perspective: 1000px; 
             margin: 20px;
         }
 
@@ -69,11 +69,11 @@
             width: 300px;
             height: 200px;
             transition: transform 0.6s;
-            transform-style: preserve-3d; /* Allow 3D transformations */
+            transform-style: preserve-3d; 
         }
 
         .card:hover .card-inner {
-            transform: rotateY(180deg); /* Rotate card on hover */
+            transform: rotateY(180deg);
         }
 
         .card-front,
@@ -81,7 +81,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden; /* Hide back face when not visible */
+            backface-visibility: hidden; 
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -92,9 +92,9 @@
 
         .card-back {
             background-color: rgba(255, 255, 255, 0.9);
-            transform: rotateY(180deg); /* Start back face rotated */
+            transform: rotateY(180deg); 
             display: flex;
-            flex-direction: column; /* Stack name and description */
+            flex-direction: column; 
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -118,7 +118,7 @@
             width: 100%;
             height: 200px;
             object-fit:fill;
-            border-radius: 10px 10px 0 0; /* Round the top corners */
+            border-radius: 10px 10px 0 0;
         }
 
         .card-content {
